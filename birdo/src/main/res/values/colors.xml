@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+  <color name="colorPrimary">@color/neue_blue</color>
+  <color name="colorPrimaryDark">#283D4D</color>
+  <color name="colorAccent">@color/hot_salmon</color>
+
+  <color name="neue_blue">#0093FF</color>
+  <color name="green">#47F5BE</color>
+  <color name="hot_salmon">#FD5E43</color>
+  <color name="grey_8">#3E586B</color>
+</resources>
