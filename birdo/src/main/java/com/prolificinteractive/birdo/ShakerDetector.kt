@@ -6,10 +6,10 @@ import android.hardware.SensorManager
 import com.squareup.seismic.ShakeDetector
 
 /**
- * One of the listener for starting Birdo. It will listen to shakes from the user and start Birdo
+ * One of the detector for starting Birdo. It will listen to shakes from the user and start Birdo
  * upon shake. This listener needs to be initialized in the application class of your app.
  */
-class ShakeListener(
+class ShakerDetector(
     private val context: Context,
     private val initializer: BirdoInitializer
 ) : ShakeDetector.Listener {

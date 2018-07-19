@@ -2,12 +2,12 @@ package com.prolificinteractive.sample
 
 import com.prolificinteractive.birdo.BirdoApp
 import com.prolificinteractive.birdo.BirdoInitializer
-import com.prolificinteractive.birdo.ShakeListener
+import com.prolificinteractive.birdo.ShakerDetector
 
 class App : BirdoApp() {
   override fun onCreate() {
     super.onCreate()
 
-    ShakeListener(this, BirdoInitializer(this, MyBirdoActivity::class.java))
+    ShakerDetector(this, BirdoInitializer(this, MyBirdoActivity::class.java))
   }
 }

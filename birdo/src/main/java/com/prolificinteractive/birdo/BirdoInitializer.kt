@@ -7,7 +7,7 @@ import com.prolificinteractive.birdo.utils.PREFS_FILE_NAME
 
 /**
  * Birdo's starter. Provide your own version or use the default one. You can start Birdo manually
- * or use one of the provided listeners.
+ * or use one of the provided detectors.
  */
 class BirdoInitializer(
     context: Context,
