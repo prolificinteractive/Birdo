@@ -24,9 +24,14 @@ dependencies {
   implementation project(':birdo')
   implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk7:$kotlin_version"
   implementation 'com.android.support:appcompat-v7:27.1.1'
+  implementation 'com.android.support:recyclerview-v7:27.1.1'
+
   implementation 'com.android.support.constraint:constraint-layout:1.1.2'
 
   implementation 'com.squareup.okhttp3:okhttp:3.11.0'
+  implementation 'com.squareup.retrofit2:retrofit:2.4.0'
+  implementation 'com.squareup.retrofit2:converter-gson:2.4.0'
+
   implementation 'com.squareup.picasso:picasso:2.5.2'
 
   implementation 'io.palaima.debugdrawer:debugdrawer-actions:0.8.0'

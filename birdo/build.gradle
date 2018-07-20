@@ -24,17 +24,15 @@ dependencies {
   implementation 'io.palaima.debugdrawer:debugdrawer-location:0.8.0'
   implementation 'io.palaima.debugdrawer:debugdrawer-logs:0.8.0'
   implementation 'io.palaima.debugdrawer:debugdrawer-network-quality:0.8.0'
-  implementation 'com.google.android.gms:play-services-location:15.0.1'
+  implementation 'io.palaima.debugdrawer:debugdrawer-timber:0.8.0'
 
   implementation 'com.jakewharton:process-phoenix:2.0.0'
-
-  api 'com.jakewharton.timber:timber:4.7.1'
-  api 'io.palaima.debugdrawer:debugdrawer-timber:0.8.0'
+  implementation 'com.squareup:seismic:1.0.2'
+  implementation 'com.google.android.gms:play-services-location:15.0.1'
+  implementation 'com.jakewharton.timber:timber:4.7.1'
 
   compileOnly 'com.squareup.okhttp3:okhttp:3.11.0'
   compileOnly "com.squareup.picasso:picasso:2.5.2"
-
-  implementation 'com.squareup:seismic:1.0.2'
 
   implementation 'com.android.support:appcompat-v7:27.1.1'
 
