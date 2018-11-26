@@ -1,20 +1,16 @@
 package com.prolificinteractive.sample
 
 import android.os.Bundle
-import android.support.v7.app.AppCompatActivity
-import android.support.v7.widget.GridLayoutManager
 import android.util.Log
 import android.view.KeyEvent
+import androidx.appcompat.app.AppCompatActivity
+import androidx.recyclerview.widget.GridLayoutManager
 import com.prolificinteractive.birdo.BirdoInitializer
 import com.prolificinteractive.birdo.KeyUpDetector
 import com.prolificinteractive.birdo.VolumeDownDetector
 import com.prolificinteractive.birdo.utils.MockMode
 import com.prolificinteractive.sample.api.responses.Characters
 import kotlinx.android.synthetic.main.activity_home.characters
-import kotlinx.android.synthetic.main.activity_home.delay
-import kotlinx.android.synthetic.main.activity_home.mockMode
-import kotlinx.android.synthetic.main.activity_home.refresh
-import kotlinx.android.synthetic.main.activity_home.start
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
@@ -40,13 +36,6 @@ class HomeActivity : AppCompatActivity(), Callback<Characters> {
 
     keyUpDetector = VolumeDownDetector(birdoInitializer)
     mockModeFetcher = MockMode(this)
-
-    start.setOnClickListener { birdoInitializer.start(this) }
-
-    refresh.setOnClickListener {
-      delay.text = mockModeFetcher.getNetworkDelay().toString()
-      mockMode.text = mockModeFetcher.isMockMode().toString()
-    }
   }
 
   override fun onResponse(call: Call<Characters>?, response: Response<Characters>?) {

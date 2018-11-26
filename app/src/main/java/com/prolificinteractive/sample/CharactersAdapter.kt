@@ -1,11 +1,11 @@
 package com.prolificinteractive.sample
 
-import android.support.v7.widget.RecyclerView
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.ImageView
 import android.widget.TextView
+import androidx.recyclerview.widget.RecyclerView
 import com.prolificinteractive.sample.CharactersAdapter.ItemViewHolder
 import com.prolificinteractive.sample.R.layout
 import com.prolificinteractive.sample.api.responses.Character
@@ -32,7 +32,7 @@ class CharactersAdapter(var data: List<Character> = emptyList()) : RecyclerView.
 
     holder.name.text = item.name
 
-    Picasso.with(holder.image.context)
+    Picasso.get()
         .load(item.image)
         .into(holder.image)
   }
