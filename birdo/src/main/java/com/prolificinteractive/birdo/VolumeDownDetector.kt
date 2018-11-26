@@ -9,7 +9,7 @@ import android.view.KeyEvent
  * It will listen to 3 times {@link KeyEvent.KEYCODE_VOLUME_DOWN} from the user and start Birdo.
  * This listener needs to be initialized in your base activity to be accessible from anywhere.
  */
-class VolumeDownDetector(private val initializer: BirdoInitializer) : KeyUpDetector {
+class VolumeDownDetector(initializer: Initializer) : Detector(initializer), KeyUpDetector {
 
   private var index: Int = 0
 

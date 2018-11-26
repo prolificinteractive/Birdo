@@ -12,7 +12,7 @@ import com.prolificinteractive.birdo.utils.PREFS_FILE_NAME
 class BirdoInitializer(
     context: Context,
     private val name: Class<out BirdoActivity> = BirdoActivity::class.java
-) {
+) : Initializer {
 
   init {
     val prefs = context.getSharedPreferences(PREFS_FILE_NAME, 0)
@@ -22,7 +22,7 @@ class BirdoInitializer(
   /**
    * Start Birdo by calling this method. Birdo will only start if it's not currently launched.
    */
-  fun start(context: Context) {
+  override fun start(context: Context) {
     val prefs = context.getSharedPreferences(PREFS_FILE_NAME, 0)
     if (!prefs.getBoolean(IS_BIRDO_ACTIVE, false)) {
       prefs.edit().putBoolean(IS_BIRDO_ACTIVE, true).apply()

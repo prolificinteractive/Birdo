@@ -28,9 +28,9 @@ dependencies {
   implementation 'io.palaima.debugdrawer:debugdrawer-timber:0.8.0'
 
   implementation 'com.jakewharton:process-phoenix:2.0.0'
-  implementation 'com.squareup:seismic:1.0.2'
   implementation 'com.google.android.gms:play-services-location:16.0.0'
   implementation 'com.jakewharton.timber:timber:4.7.1'
+  api 'com.squareup:seismic:1.0.2'
 
   compileOnly 'com.squareup.okhttp3:okhttp:3.11.0'
   compileOnly "com.squareup.picasso:picasso:2.71828"
