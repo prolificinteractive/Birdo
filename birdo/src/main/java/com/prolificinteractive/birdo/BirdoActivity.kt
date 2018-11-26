@@ -3,7 +3,7 @@ package com.prolificinteractive.birdo
 import android.content.SharedPreferences
 import android.content.pm.PackageManager
 import android.os.Bundle
-import android.support.v7.app.AppCompatActivity
+import androidx.appcompat.app.AppCompatActivity
 import android.view.View
 import com.jakewharton.processphoenix.ProcessPhoenix
 import com.prolificinteractive.birdo.utils.IS_BIRDO_ACTIVE

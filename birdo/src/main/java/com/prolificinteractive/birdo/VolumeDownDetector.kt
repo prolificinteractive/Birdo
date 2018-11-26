@@ -13,6 +13,13 @@ class VolumeDownDetector(private val initializer: BirdoInitializer) : KeyUpDetec
 
   private var index: Int = 0
 
+  companion object {
+    private val SEQUENCE = intArrayOf(
+        KeyEvent.KEYCODE_VOLUME_DOWN,
+        KeyEvent.KEYCODE_VOLUME_DOWN,
+        KeyEvent.KEYCODE_VOLUME_DOWN)
+  }
+
   override fun onKeyUp(activity: Activity, keyCode: Int, event: KeyEvent) {
     if (keyCode == SEQUENCE[index] && index == SEQUENCE.size - 1) {
       index = 0
@@ -22,12 +29,5 @@ class VolumeDownDetector(private val initializer: BirdoInitializer) : KeyUpDetec
     } else {
       index = 0
     }
-  }
-
-  companion object {
-    private val SEQUENCE = intArrayOf(
-        KeyEvent.KEYCODE_VOLUME_DOWN,
-        KeyEvent.KEYCODE_VOLUME_DOWN,
-        KeyEvent.KEYCODE_VOLUME_DOWN)
   }
 }

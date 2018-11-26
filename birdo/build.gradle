@@ -1,15 +1,16 @@
 apply plugin: 'com.android.library'
 apply plugin: 'kotlin-android'
 apply plugin: 'kotlin-android-extensions'
+apply plugin: 'com.github.dcendents.android-maven'
 
 android {
-  compileSdkVersion 27
+  compileSdkVersion 28
 
   defaultConfig {
     minSdkVersion 19
-    targetSdkVersion 27
+    targetSdkVersion 28
 
-    testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
+    testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
   }
 }
 
@@ -28,15 +29,15 @@ dependencies {
 
   implementation 'com.jakewharton:process-phoenix:2.0.0'
   implementation 'com.squareup:seismic:1.0.2'
-  implementation 'com.google.android.gms:play-services-location:15.0.1'
+  implementation 'com.google.android.gms:play-services-location:16.0.0'
   implementation 'com.jakewharton.timber:timber:4.7.1'
 
   compileOnly 'com.squareup.okhttp3:okhttp:3.11.0'
-  compileOnly "com.squareup.picasso:picasso:2.5.2"
+  compileOnly "com.squareup.picasso:picasso:2.71828"
 
-  implementation 'com.android.support:appcompat-v7:27.1.1'
+  implementation 'androidx.appcompat:appcompat:1.0.2'
 
   testImplementation 'junit:junit:4.12'
-  androidTestImplementation 'com.android.support.test:runner:1.0.2'
-  androidTestImplementation 'com.android.support.test.espresso:espresso-core:3.0.2'
+  androidTestImplementation 'androidx.test:runner:1.1.0'
+  androidTestImplementation 'androidx.test.espresso:espresso-core:3.1.0'
 }

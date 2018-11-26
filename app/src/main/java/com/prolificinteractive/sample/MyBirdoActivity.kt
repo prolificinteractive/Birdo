@@ -19,7 +19,7 @@ class MyBirdoActivity : BirdoActivity() {
 
   override fun getPicasso(): Picasso? {
     // Pass your picasso instance here.
-    return Picasso.with(this)
+    return Picasso.get()
   }
 
   override fun getExtraModules(): List<DebugModule>? {

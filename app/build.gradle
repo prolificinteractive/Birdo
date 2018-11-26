@@ -3,15 +3,20 @@ apply plugin: 'kotlin-android'
 apply plugin: 'kotlin-android-extensions'
 
 android {
-  compileSdkVersion 27
+  compileSdkVersion 28
+
   defaultConfig {
     applicationId "com.prolificinteractive.birdo"
+
     minSdkVersion 19
-    targetSdkVersion 27
+    targetSdkVersion 28
+
     versionCode 42
     versionName "3.2.1"
-    testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
+
+    testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
   }
+
   buildTypes {
     release {
       minifyEnabled false
@@ -23,16 +28,16 @@ android {
 dependencies {
   implementation project(':birdo')
   implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk7:$kotlin_version"
-  implementation 'com.android.support:appcompat-v7:27.1.1'
-  implementation 'com.android.support:recyclerview-v7:27.1.1'
+  implementation 'androidx.appcompat:appcompat:1.0.2'
+  implementation 'androidx.recyclerview:recyclerview:1.0.0'
 
-  implementation 'com.android.support.constraint:constraint-layout:1.1.2'
+  implementation 'androidx.constraintlayout:constraintlayout:2.0.0-alpha2'
 
   implementation 'com.squareup.okhttp3:okhttp:3.11.0'
   implementation 'com.squareup.retrofit2:retrofit:2.4.0'
   implementation 'com.squareup.retrofit2:converter-gson:2.4.0'
 
-  implementation 'com.squareup.picasso:picasso:2.5.2'
+  implementation 'com.squareup.picasso:picasso:2.71828'
 
   implementation 'io.palaima.debugdrawer:debugdrawer-actions:0.8.0'
 }
