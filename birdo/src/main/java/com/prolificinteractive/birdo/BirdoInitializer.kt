@@ -2,6 +2,7 @@ package com.prolificinteractive.birdo
 
 import android.content.Context
 import android.content.Intent
+import android.content.Intent.FLAG_ACTIVITY_NEW_TASK
 import com.prolificinteractive.birdo.utils.IS_BIRDO_ACTIVE
 import com.prolificinteractive.birdo.utils.PREFS_FILE_NAME
 
@@ -26,7 +27,9 @@ class BirdoInitializer(
     val prefs = context.getSharedPreferences(PREFS_FILE_NAME, 0)
     if (!prefs.getBoolean(IS_BIRDO_ACTIVE, false)) {
       prefs.edit().putBoolean(IS_BIRDO_ACTIVE, true).apply()
-      context.startActivity(Intent(context, name))
+      val intent = Intent(context, name)
+      intent.flags = FLAG_ACTIVITY_NEW_TASK
+      context.startActivity(intent)
     }
   }
 }
