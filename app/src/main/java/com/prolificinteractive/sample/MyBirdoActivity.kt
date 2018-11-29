@@ -31,4 +31,8 @@ class MyBirdoActivity : BirdoActivity() {
       startActivity(Intent(Intent.ACTION_VIEW, Uri.parse(MY_WEB_SITE)))
     })
   }
+
+  override fun getMockModeOptions(): LinkedHashMap<String, Long> {
+    return linkedMapOf(Pair("2 seconds", 2L), Pair("5 seconds", 5L), Pair("16 seconds", 16L))
+  }
 }

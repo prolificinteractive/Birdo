@@ -3,8 +3,8 @@ package com.prolificinteractive.birdo
 import android.content.SharedPreferences
 import android.content.pm.PackageManager
 import android.os.Bundle
-import androidx.appcompat.app.AppCompatActivity
 import android.view.View
+import androidx.appcompat.app.AppCompatActivity
 import com.jakewharton.processphoenix.ProcessPhoenix
 import com.prolificinteractive.birdo.utils.IS_BIRDO_ACTIVE
 import com.prolificinteractive.birdo.utils.MockMode
@@ -43,24 +43,24 @@ open class BirdoActivity : AppCompatActivity() {
 
       version.text = getString(R.string.version, pInfo.versionName, pInfo.versionCode.toString())
       version.visibility = View.VISIBLE
-
     } catch (e: PackageManager.NameNotFoundException) {
       e.printStackTrace()
       version.visibility = View.GONE
     }
 
-    var modules: Array<DebugModule> =
-        arrayOf(
-            utilsModules(),
-            getMockModule(MockMode(this)),
-            LocationModule(),
-            TimberModule(),
-            DeviceModule(),
-            LogsModule(),
-            BuildModule(),
-            NetworkModule(),
-            SettingsModule()
-        ).plus(getExtraModules().orEmpty())
+    var modules: List<DebugModule> =
+        getExtraModules().orEmpty()
+            .plus(arrayOf(
+                utilsModules(),
+                getMockModule(MockMode(this)),
+                LocationModule(),
+                TimberModule(),
+                DeviceModule(),
+                LogsModule(),
+                BuildModule(),
+                NetworkModule(),
+                SettingsModule()
+            ))
 
 
     if (getOkHttp() != null) {
@@ -71,7 +71,7 @@ open class BirdoActivity : AppCompatActivity() {
     }
 
 
-    birdo_view.modules(*modules)
+    birdo_view.modules(*modules.toTypedArray())
   }
 
   /**
@@ -95,26 +95,37 @@ open class BirdoActivity : AppCompatActivity() {
     return null
   }
 
+  protected open fun getMockModeOptions(): LinkedHashMap<String, Long> {
+    return linkedMapOf(
+        Pair("0 seconds", 0L),
+        Pair("1 seconds", 1L),
+        Pair("4 seconds", 4L),
+        Pair("10 seconds", 10L),
+        Pair("16 seconds", 16L),
+        Pair("30 seconds", 30L)
+    )
+  }
+
   /**
    * Mock mode related debug drawer module.
    */
   private fun getMockModule(mockMode: MockMode): ActionsModule {
-    // TODO Extract and make it customizable maybe?
-    val titles = arrayOf("0 seconds",
-        "1 seconds",
-        "4 seconds",
-        "10 seconds",
-        "16 seconds",
-        "30 seconds")
-    val delays = arrayOf(0L, 1L, 4L, 10L, 16L, 30L)
-
     val mockModeSwitcher = SwitchAction("Mock Mode Switcher") { value -> mockMode.switch(value) }
 
+    val options = getMockModeOptions()
+
+    val names = options.keys.toMutableList()
+    val delays = options.values.toMutableList()
+
+    var position = delays.indexOf(mockMode.getNetworkDelay())
+    if (position < 0 || position >= delays.size) {
+      position = 0
+    }
     val mockDelayButton = SpinnerAction<Long>(
-        arrayListOf(*titles),
-        arrayListOf(*delays),
+        names,
+        delays,
         SpinnerAction.OnItemSelectedListener { mockMode.setDelay(it) },
-        delays.indexOf(mockMode.getNetworkDelay())
+        position
     )
 
     return ActionsModule("Mock Mode Settings", mockModeSwitcher, mockDelayButton)
