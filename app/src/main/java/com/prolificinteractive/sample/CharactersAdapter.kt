@@ -15,7 +15,7 @@ import kotlinx.android.synthetic.main.item_character.view.name
 
 class CharactersAdapter(var data: List<Character> = emptyList()) : RecyclerView.Adapter<ItemViewHolder>() {
 
-  class ItemViewHolder(val view: View) : RecyclerView.ViewHolder(view) {
+  class ItemViewHolder(view: View) : RecyclerView.ViewHolder(view) {
     val image: ImageView = view.image
     val name: TextView = view.name
   }
