@@ -1,7 +1,7 @@
 <img src="/assets/hero.jpg"/>
 
 # Birdo
-[![Travis branch](https://img.shields.io/travis/prolificinteractive/birdo/master.svg)](https://travis-ci.org/prolificinteractive/birdo) [![](https://jitpack.io/v/prolificinteractive/birdo.svg)](https://jitpack.io/#prolificinteractive/birdo)
+[![Travis branch](https://img.shields.io/travis/prolificinteractive/Birdo/master.svg)](https://travis-ci.org/prolificinteractive/Birdo) [![](https://jitpack.io/v/prolificinteractive/birdo.svg)](https://jitpack.io/#prolificinteractive/birdo)
 
 Prolific's wrapper for debugging their application. 
 
@@ -116,7 +116,7 @@ If you wish to contribute to the project, fork this repo and submit a pull reque
 
 ![prolific](https://s3.amazonaws.com/prolificsitestaging/logos/Prolific_Logo_Full_Color.png)
 
-Copyright (c) 2018 Prolific Interactive
+Copyright (c) 2019 Prolific Interactive
 
 Birdo is maintained and sponsored by Prolific Interactive. It may be redistributed under the terms specified in the [LICENSE] file.
 

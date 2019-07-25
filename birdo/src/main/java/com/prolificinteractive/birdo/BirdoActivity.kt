@@ -6,6 +6,8 @@ import android.os.Bundle
 import android.view.View
 import androidx.appcompat.app.AppCompatActivity
 import com.jakewharton.processphoenix.ProcessPhoenix
+import com.prolificinteractive.birdo.modules.CustomSwitchAction
+import com.prolificinteractive.birdo.modules.CustomSwitchAction.Listener
 import com.prolificinteractive.birdo.utils.IS_BIRDO_ACTIVE
 import com.prolificinteractive.birdo.utils.MockMode
 import com.prolificinteractive.birdo.utils.PREFS_FILE_NAME
@@ -13,7 +15,6 @@ import com.squareup.picasso.Picasso
 import io.palaima.debugdrawer.actions.ActionsModule
 import io.palaima.debugdrawer.actions.ButtonAction
 import io.palaima.debugdrawer.actions.SpinnerAction
-import io.palaima.debugdrawer.actions.SwitchAction
 import io.palaima.debugdrawer.base.DebugModule
 import io.palaima.debugdrawer.commons.BuildModule
 import io.palaima.debugdrawer.commons.DeviceModule
@@ -27,6 +28,7 @@ import io.palaima.debugdrawer.timber.TimberModule
 import kotlinx.android.synthetic.main.activity_birdo.birdo_view
 import kotlinx.android.synthetic.main.activity_birdo.version
 import okhttp3.OkHttpClient
+import timber.log.Timber
 
 /**
  * The Debug Activity containing the {@link DebugView}. You have the option to use this directly or
@@ -110,7 +112,14 @@ open class BirdoActivity : AppCompatActivity() {
    * Mock mode related debug drawer module.
    */
   private fun getMockModule(mockMode: MockMode): ActionsModule {
-    val mockModeSwitcher = SwitchAction("Mock Mode Switcher") { value -> mockMode.switch(value) }
+    val listener = object : Listener {
+      override fun onCheckedChanged(value: Boolean) {
+        Timber.e("Yolo: $value")
+        mockMode.switch(value)
+      }
+    }
+    Timber.e("Mock: ${mockMode.isMockMode()}")
+    val mockModeSwitcher = CustomSwitchAction("Mock Mode Switcher", listener, mockMode.isMockMode())
 
     val options = getMockModeOptions()
 
